@@ -1,0 +1,11 @@
+WAITFOR ctrl+shift+b
+WAIT 500
+PRESS ctrl+o
+WAIT 1500
+TYPE Default.mp3
+PRESS enter
+WAIT 5000
+PRESS ctrl+shift+i
+WAIT 1000
+TYPE SecondDefault.mp3
+PRESS enter

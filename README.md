@@ -1,0 +1,157 @@
+<h1>Automation Scripts</h1>
+Use to automate simple keyboard and mouse event based tasks
+<h3>Usage</h3>
+Keyboards and mouse events are controlled by a text encoded script file. To execute a script either:
+
+**IMPORTANT**: Before any execution of automations please open a random audio file in the Audios folder in audacity. This
+is because the scripts rely on the file explorer dialog box, when opening/saving files, to open in the Audios
+directory and reference the script relatively from the directory instead of relying on absolute paths, that will break on
+other machines!
+
+**!!IMPORTANT 2!!**: Scripts will wait until you press ctrl+shift+b to begin execution. This is to give you time to load up
+audacity
+
+Run Main.py with the script file path passed as a parameter. This path can be relative to Main.py or absolute.
+So, for example:
+
+    python Main.py RunConfigurations/LowPassFilter.txt
+and
+
+    python Main.py C:\Users\USER123\AudacityAutomator\RunConfigurations\LowPassFilter.txt
+are both valid ways of referencing a script file.
+
+**OR**
+
+Do not pass any parameters and you will then be prompted to enter a file path
+in the console. This path may be relative to Main.py or absolute.
+
+<h2>API</h2>
+- **TYPE** *text*
+- **PRESS** *hotkey*
+- **WAIT** *millis*
+- **WAITFOR** *hotkey*
+- **PRESSSCAN** *scanCode*
+- **PRESSEDTYPE** *text*
+- **CLICK** *x y*
+
+**NOTE:** It is good practice to place a WAITFOR, with the shortcut ctrl+alt+b to give the user time to
+load up audacity and then use the shortcut to begin execution
+
+
+---
+
+<h3>TYPE *text*</h3>
+*Specified by*: [Keyboard](https://github.com/boppreh/keyboard).write(text) 
+
+Simulates key events as if typing on the keyboard
+
+`text`: Text to type
+
+Example:
+
+    TYPE Hello!
+will type 'Hello!'
+
+---
+
+<h3>PRESS *hotkey*</h3>
+*Specified by*: [Keyboard](https://github.com/boppreh/keyboard).send(hotkey)
+
+Presses hotkeys down together and then releases them. This is generally used for shortcuts
+
+`hotkey`: key combination to press
+
+Example:
+
+    PRESS ctrl+shift+s
+will trigger ctrl+shift+s
+
+---
+
+<h3>PRESSSCAN *scanCode*</h3>
+*Specified by*: [Keyboard](https://github.com/boppreh/keyboard).send(hotkey)
+
+Presses the key that is relevant to the provided scan code. This
+is helpful for when pressing a key with no textual representation EG: arrow keys.
+
+**Note**: Scan key mappings are system dependant
+
+`hotkey`: key combination to press
+
+Example:
+
+    PRESSSCAN 77
+will press the right arrow key.
+
+---
+
+<h3>PRESSEDSCAN *text*</h3>
+*Specified by*: [Keyboard](https://github.com/boppreh/keyboard).send(hotkey)
+
+An alternative to the TYPE operation for cases where an application does not
+accept keys pressed through the TYPE operation.
+
+`text`: the keys to press.
+
+Example:
+
+    PRESSSEDSCAN hello
+will type 'hello'.
+
+---
+
+<h3>WAITFOR *hotkey*</h3>
+*Specified by*: [Keyboard](https://github.com/boppreh/keyboard).wait(hotkey)
+
+Holds execution until the provided hotkey is pressed. It is highly recommended that you 
+place one of these at the start of a script to only execute when you are ready by pressing 
+the hotkey
+
+`hotkey`: the hotkey required to resume execution
+
+Example:
+
+    WAITFOR ctrl+shift+b
+will wait until ctrl+shift+b is pressed
+
+---
+
+<h3>CLICK *x y*</h3>
+*Specified by*: [Mouse](https://github.com/boppreh/mouse).click(button)
+*and*  [Mouse](https://github.com/boppreh/mouse).move(x,y)
+
+Moves the mouse to the specified position and left clicks
+
+`x`: the x position to click on
+`y`: the y position to click on
+
+Example:
+
+    CLICK 27 103
+will left click at x:27 y:103
+
+
+---
+
+<h3>WAIT *millis*</h3>
+
+Holds operations for the specified time in milliseconds
+
+`millis`: Time to hold program in seconds 
+
+Example:
+
+    WAIT 1000
+will pause execution for 1 seconds
+
+
+
+<h3>Comments</h3>
+Comments are marked by a '//' at the start of a line. All text on that line will be discarded during execution.
+There must be a space between '//' and the comment and
+comments may not be placed halfway through the line.
+
+<h2>Attribution</h2>
+This project includes the [Mouse](https://github.com/boppreh/mouse) and
+[Keyboard](https://github.com/boppreh/keyboard) libraries 
+Licenced under the [MIT LICENCE](https://mit-license.org/)

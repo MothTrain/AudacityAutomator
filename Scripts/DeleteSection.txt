@@ -1,0 +1,26 @@
+WAITFOR ctrl+shift+b
+WAIT 1000
+
+PRESS ctrl+o
+WAIT 1500
+TYPE Default.mp3
+PRESS enter
+WAIT 5000
+
+// Position of "Project Rate (Hz)" selector
+CLICK 72 711
+PRESS tab
+PRESS tab
+PRESS tab
+PRESS 0
+WAIT 500
+// Start of selection: HHMMSSMsMs
+PRESSEDTYPE 00000100
+
+PRESS tab
+// End of selection. Typing will begin from the first non-zero digit typed on the 'start of selection' box.
+// So if start of selection was 00000100
+// end of selection will begin from  ^
+PRESSEDTYPE 4
+
+PRESS ctrl+k

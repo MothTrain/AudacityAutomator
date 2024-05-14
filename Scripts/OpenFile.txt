@@ -1,0 +1,6 @@
+WAITFOR ctrl+shift+b
+WAIT 1000
+PRESS ctrl+o
+WAIT 1500
+TYPE Default.mp3
+PRESS enter
