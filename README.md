@@ -1,15 +1,18 @@
 <h1>Automation Scripts</h1>
 Use to automate simple keyboard and mouse event based tasks
 <h3>Usage</h3>
-Keyboards and mouse events are controlled by a text encoded script file. To execute a script either:
 
 **IMPORTANT**: Before any execution of automations please open a random audio file in the Audios folder in audacity. This
 is because the scripts rely on the file explorer dialog box, when opening/saving files, to open in the Audios
-directory and reference the script relatively from the directory instead of relying on absolute paths, that will break on
+directory and reference the script relatively from there instead of relying on absolute paths, that will break on
 other machines!
 
 **!!IMPORTANT 2!!**: Scripts will wait until you press ctrl+shift+b to begin execution. This is to give you time to load up
 audacity
+
+Keyboards and mouse events are controlled by a text encoded script file. To execute a script either:
+
+
 
 Run Main.py with the script file path passed as a parameter. This path can be relative to Main.py or absolute.
 So, for example:
@@ -157,7 +160,7 @@ will pause execution for 1 seconds
 
 ### Comment
 Comments are marked by a '//' at the start of a line. All text on that line will be discarded during execution.
-There must be a space between '//' and the comment and
+There must be a space between '//' and the
 comments may not be placed halfway through the line.
 
 ### Attribution
