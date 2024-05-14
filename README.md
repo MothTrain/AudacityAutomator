@@ -25,7 +25,8 @@ are both valid ways of referencing a script file.
 Do not pass any parameters and you will then be prompted to enter a file path
 in the console. This path may be relative to Main.py or absolute.
 
-<h2>API</h2>
+## API
+
 - **TYPE** *text*
 - **PRESS** *hotkey*
 - **WAIT** *millis*
@@ -40,7 +41,8 @@ load up audacity and then use the shortcut to begin execution
 
 ---
 
-<h3>TYPE *text*</h3>
+### TYPE *text*
+
 *Specified by*: [Keyboard](https://github.com/boppreh/keyboard).write(text) 
 
 Simulates key events as if typing on the keyboard
@@ -54,7 +56,8 @@ will type 'Hello!'
 
 ---
 
-<h3>PRESS *hotkey*</h3>
+### PRESS *hotkey*
+
 *Specified by*: [Keyboard](https://github.com/boppreh/keyboard).send(hotkey)
 
 Presses hotkeys down together and then releases them. This is generally used for shortcuts
@@ -68,7 +71,8 @@ will trigger ctrl+shift+s
 
 ---
 
-<h3>PRESSSCAN *scanCode*</h3>
+### PRESSSCAN *scanCode*
+
 *Specified by*: [Keyboard](https://github.com/boppreh/keyboard).send(hotkey)
 
 Presses the key that is relevant to the provided scan code. This
@@ -85,7 +89,8 @@ will press the right arrow key.
 
 ---
 
-<h3>PRESSEDSCAN *text*</h3>
+### PRESSEDTYPE *text*
+
 *Specified by*: [Keyboard](https://github.com/boppreh/keyboard).send(hotkey)
 
 An alternative to the TYPE operation for cases where an application does not
@@ -95,12 +100,13 @@ accept keys pressed through the TYPE operation.
 
 Example:
 
-    PRESSSEDSCAN hello
+    PRESSSEDTYPE hello
 will type 'hello'.
 
 ---
 
-<h3>WAITFOR *hotkey*</h3>
+### WAITFOR *hotkey*
+
 *Specified by*: [Keyboard](https://github.com/boppreh/keyboard).wait(hotkey)
 
 Holds execution until the provided hotkey is pressed. It is highly recommended that you 
@@ -116,11 +122,14 @@ will wait until ctrl+shift+b is pressed
 
 ---
 
-<h3>CLICK *x y*</h3>
+### CLICK *x y*
+
 *Specified by*: [Mouse](https://github.com/boppreh/mouse).click(button)
 *and*  [Mouse](https://github.com/boppreh/mouse).move(x,y)
 
-Moves the mouse to the specified position and left clicks
+Moves the mouse to the specified position and left clicks.
+**WARNING**: Using this function is highly discouraged and should only be used where keyboard based events cannot complete the operation. This is because
+very small changes such as screen size can cause the mouse to click in the wrong area!
 
 `x`: the x position to click on
 `y`: the y position to click on
@@ -133,7 +142,7 @@ will left click at x:27 y:103
 
 ---
 
-<h3>WAIT *millis*</h3>
+### WAIT *millis*
 
 Holds operations for the specified time in milliseconds
 
@@ -146,12 +155,12 @@ will pause execution for 1 seconds
 
 
 
-<h3>Comments</h3>
+### Comment
 Comments are marked by a '//' at the start of a line. All text on that line will be discarded during execution.
 There must be a space between '//' and the comment and
 comments may not be placed halfway through the line.
 
-<h2>Attribution</h2>
+### Attribution
 This project includes the [Mouse](https://github.com/boppreh/mouse) and
 [Keyboard](https://github.com/boppreh/keyboard) libraries 
 Licenced under the [MIT LICENCE](https://mit-license.org/)
