@@ -3,7 +3,8 @@ WAIT 1000
 
 PRESS ctrl+o
 WAIT 1500
-TYPE Default.mp3
+TYPEPATH Audios/Default.mp3
+WAIT 2000
 PRESS enter
 WAIT 5000
 

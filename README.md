@@ -2,10 +2,6 @@
 Use to automate simple keyboard and mouse event based tasks
 <h3>Usage</h3>
 
-**IMPORTANT**: Before any execution of automations please open a random audio file in the Audios folder in audacity. This
-is because the scripts rely on the file explorer dialog box, when opening/saving files, to open in the Audios
-directory and reference the script relatively from there instead of relying on absolute paths, that will break on
-other machines!
 
 **!!IMPORTANT 2!!**: Scripts will wait until you press ctrl+shift+b to begin execution. This is to give you time to load up
 audacity
@@ -56,6 +52,24 @@ Example:
 
     TYPE Hello!
 will type 'Hello!'
+
+---
+
+### TYPEPATH *path*
+
+*Specified by*: [Keyboard](https://github.com/boppreh/keyboard).write(text) 
+
+Allows use of typing absolute paths into applications without needing to specify an
+absolute path in the script. The script must enter a path relative to Main.py. TYPEPATH
+will convert the relative path to absolute.
+
+`path`: Path of a file relative to Main.py
+
+Example:
+
+    TYPEPATH Audios/Default.mp3
+Given that Main.py is located at 'C:\Users\USER123\Example\AudacityAutomator':
+'C:\Users\USER123\Example\AudacityAutomator\Audios\Default.mp3' will be typed
 
 ---
 

@@ -32,12 +32,6 @@ time.sleep(0.5)
 keyboard.press_and_release('enter')
 time.sleep(0.5)
 keyboard.press_and_release('enter')
-hasMoreLinesFlag = True
-while hasMoreLinesFlag:
-    line = configFile.readline()
-    if line == '': break  # End of file
-
-    line = line.removesuffix('\n')
 
 
 

@@ -1,25 +1,33 @@
 import configparser
+import os
 import sys
 import time
 
 import keyboard
 import mouse
 
-
 if sys.argv.__len__() < 2:
     configPath = input("script file path not specified: Enter path: ")
 else:
     configPath = sys.argv[1]
 
-configFile = open(configPath, 'r')
+workingDirectory = os.getcwd()
+if not os.path.isabs(workingDirectory):
+    workingDirectory = input("Failed to get a path for referencing audio files relatively. "
+                             "Enter directory containing Main.py: ")
+if not os.path.isdir(workingDirectory):
+    print("Valid working directory for relative referencing audio files could not be found")
+    sys.exit()
+print(workingDirectory)
 
+configFile = open(configPath, 'r')
 
 while True:
     line = configFile.readline()
-    if line == '': break # End of file
+    if line == '': break  # End of file
 
     line = line.removesuffix('\n')
-    if line == '': continue # Empty line
+    if line == '': continue  # Empty line
 
     split = line.split(' ', 1)
 
@@ -31,6 +39,10 @@ while True:
 
     if operator == "TYPE":
         keyboard.write(argument)
+
+    if operator == "TYPEPATH":
+        absolutePath = f"{workingDirectory}\\{argument}".replace("/","\\")
+        keyboard.write(absolutePath)
 
     elif operator == "PRESSEDTYPE":
         chars = list(argument)
@@ -44,7 +56,7 @@ while True:
         keyboard.press_and_release(scanCode)
 
     elif operator == "WAIT":
-        millis = int(argument)/1000
+        millis = int(argument) / 1000
         time.sleep(millis)
 
     elif operator == "WAITFOR":
@@ -60,6 +72,4 @@ while True:
     else:
         print(f"Invalid operator: {split[0]}")
 
-
 configFile.close()
-
