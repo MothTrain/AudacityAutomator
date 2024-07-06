@@ -1,14 +1,13 @@
 <h1>Automation Scripts</h1>
-Use to automate simple keyboard and mouse event based tasks
+A simple set of scripts that can be used Used to automate simple keyboard and mouse event based tasks.
+Scripts are written in a pseudo programming language, specified below
 <h3>Usage</h3>
 
 
-**!!IMPORTANT 2!!**: Scripts will wait until you press ctrl+shift+b to begin execution. This is to give you time to load up
+Most scripts will wait until you press ctrl+shift+b to begin execution. This is to give you time to load up
 audacity
 
 Keyboards and mouse events are controlled by a text encoded script file. To execute a script either:
-
-
 
 Run Main.py with the script file path passed as a parameter. This path can be relative to Main.py or absolute.
 So, for example:
@@ -174,8 +173,8 @@ will pause execution for 1 seconds
 
 ### Comment
 Comments are marked by a '//' at the start of a line. All text on that line will be discarded during execution.
-There must be a space between '//' and the
-comments may not be placed halfway through the line.
+There must be a space between '//' and the comment.
+Comments may not start halfway through the line.
 
 ### Attribution
 This project includes the [Mouse](https://github.com/boppreh/mouse) and
